@@ -6,3 +6,7 @@ services:
     buildCommand: npm install --include=dev && npm run build
     startCommand: npx serve -s dist
     healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 3000
+

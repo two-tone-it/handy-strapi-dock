@@ -17,29 +17,14 @@ const RenderConfig = () => {
           <pre>{`# render.yaml
 services:
   - type: web
-    name: cms-handyman
+    name: handy-strapi-dock
     env: node
     buildCommand: npm install --include=dev && npm run build
     startCommand: npx serve -s dist
     healthCheckPath: /
     envVars:
-      - key: NODE_ENV
-        value: production
-      - key: DATABASE_URL
-        fromDatabase:
-          name: cms-handyman-db
-          property: connectionString
-      - key: ADMIN_JWT_SECRET
-        generateValue: true
-      - key: APP_KEYS
-        generateValue: true
-      - key: JWT_SECRET
-        generateValue: true
-
-databases:
-  - name: cms-handyman-db
-    plan: starter
-`}</pre>
+      - key: PORT
+        value: 3000`}</pre>
         </div>
         
         <p className="text-sm font-medium">Important Package.json settings:</p>
@@ -47,7 +32,9 @@ databases:
           <pre>{`"scripts": {
   "dev": "vite",
   "build": "vite build",
-  "preview": "vite preview"
+  "build:dev": "vite build --mode development", 
+  "preview": "vite preview",
+  "start": "serve -s dist"
 },
 "dependencies": {
   "react": "^18.2.0",
