@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "develop": "npx strapi develop",
-    "start": "npx strapi start",
+    "start": "PORT=${PORT:-1337} npx strapi start",
     "build": "npx strapi build"
 },
   "dependencies": {
