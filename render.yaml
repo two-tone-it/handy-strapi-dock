@@ -3,8 +3,8 @@ services:
   - type: web
     name: handy-strapi-dock
     env: node
-    buildCommand: npm install --include=dev && npm run build
-    startCommand: npx serve -s dist
+    buildCommand: npm install && npm run build
+    startCommand: npx strapi start
     healthCheckPath: /
     envVars:
       - key: PORT
