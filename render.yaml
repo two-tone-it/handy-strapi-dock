@@ -9,4 +9,6 @@ services:
     envVars:
       - key: PORT
         value: 1337
+      - key: HOST
+        value: 0.0.0.0        
 
