@@ -4,5 +4,6 @@ services:
     name: handy-strapi-dock
     env: node
     buildCommand: npm install && npm run build
-    startCommand: npm run start
+    startCommand: npx serve -s dist
     healthCheckPath: /
+

@@ -20,7 +20,7 @@ services:
     name: cms-handyman
     env: node
     buildCommand: npm install && npm run build
-    startCommand: npm run start
+    startCommand: npx serve -s dist
     healthCheckPath: /
     envVars:
       - key: NODE_ENV
@@ -45,16 +45,18 @@ databases:
         <p className="text-sm font-medium">Important Package.json settings:</p>
         <div className="bg-gray-100 dark:bg-gray-900 p-4 rounded font-mono text-sm overflow-auto max-h-60">
           <pre>{`"scripts": {
-  "develop": "strapi develop",
-  "start": "strapi start",
-  "build": "strapi build",
-  "strapi": "strapi"
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
 },
 "dependencies": {
-  "@strapi/strapi": "^4.15.0",
-  "@strapi/plugin-i18n": "^4.15.0",
-  "@strapi/plugin-users-permissions": "^4.15.0",
-  "pg": "^8.11.3"
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "serve": "^14.2.1"
+},
+"devDependencies": {
+  "@vitejs/plugin-react": "^4.0.0",
+  "vite": "^4.3.9"
 }`}</pre>
         </div>
       </CardContent>
