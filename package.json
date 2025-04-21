@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "develop": "strapi develop",
-  "start": "strapi start",
-  "build": "strapi build"
+    "develop": "npx strapi develop",
+    "start": "npx strapi start",
+    "build": "npx strapi build"
 },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -58,7 +58,8 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.3",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "@strapi/cli": "^4.20.0",  // เวอร์ชันตามที่คุณใช้
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
