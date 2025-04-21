@@ -19,7 +19,7 @@ services:
   - type: web
     name: cms-handyman
     env: node
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --include=dev && npm run build
     startCommand: npx serve -s dist
     healthCheckPath: /
     envVars:
