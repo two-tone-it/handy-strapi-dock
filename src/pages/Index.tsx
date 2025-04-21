@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Code, Database, Docker, FileCode, Github, Laptop, Server } from "lucide-react";
+import { ArrowRight, Code, Database, Container, FileCode, Github, Laptop, Server } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import DeploymentCard from "@/components/DeploymentCard";
 
 const Index = () => {
   const { toast } = useToast();
@@ -31,7 +31,7 @@ const Index = () => {
           <Card className="hover:shadow-lg transition-all">
             <CardHeader className="space-y-1">
               <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 mb-4">
-                <Docker className="h-6 w-6 text-blue-600 dark:text-blue-300" />
+                <Container className="h-6 w-6 text-blue-600 dark:text-blue-300" />
               </div>
               <CardTitle>Docker Setup</CardTitle>
               <CardDescription>Complete Docker configuration for development and production</CardDescription>
@@ -150,7 +150,7 @@ const Index = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <Docker className="mr-2 h-5 w-5" /> 
+                      <Container className="mr-2 h-5 w-5" /> 
                       Dockerfile
                     </CardTitle>
                     <CardDescription>
@@ -621,28 +621,40 @@ PORT=1337
             <CardContent className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold mb-2">Railway Deployment</h3>
-                <ol className="list-decimal pl-5 space-y-1">
-                  <li>Push your code to GitHub</li>
-                  <li>Create a new project in Railway</li>
-                  <li>Connect your GitHub repository</li>
-                  <li>Add a PostgreSQL service from Railway's catalog</li>
-                  <li>Configure the environment variables</li>
-                  <li>Deploy</li>
-                </ol>
+                <div className="space-y-2">
+                  <DeploymentCard 
+                    platform="Railway"
+                    steps={[
+                      "Push your code to GitHub",
+                      "Create a new project in Railway",
+                      "Connect your GitHub repository",
+                      "Add a PostgreSQL service from Railway's catalog",
+                      "Configure the environment variables",
+                      "Deploy"
+                    ]}
+                    icon={<Server className="mr-2 h-5 w-5 text-indigo-500" />}
+                  />
+                </div>
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">Render Deployment</h3>
-                <ol className="list-decimal pl-5 space-y-1">
-                  <li>Push your code to GitHub</li>
-                  <li>Create a new Web Service in Render</li>
-                  <li>Connect your GitHub repository</li>
-                  <li>Set the build command: <code>npm install && npm run build</code></li>
-                  <li>Set the start command: <code>npm start</code></li>
-                  <li>Create a PostgreSQL database in Render</li>
-                  <li>Link the PostgreSQL database to your Web Service</li>
-                  <li>Configure all required environment variables</li>
-                  <li>Deploy</li>
-                </ol>
+                <div className="space-y-2">
+                  <DeploymentCard 
+                    platform="Render"
+                    steps={[
+                      "Push your code to GitHub",
+                      "Create a new Web Service in Render",
+                      "Connect your GitHub repository",
+                      "Set the build command: npm install && npm run build",
+                      "Set the start command: npm start",
+                      "Create a PostgreSQL database in Render",
+                      "Link the PostgreSQL database to your Web Service",
+                      "Configure all required environment variables",
+                      "Deploy"
+                    ]}
+                    icon={<Server className="mr-2 h-5 w-5 text-green-500" />}
+                  />
+                </div>
               </div>
             </CardContent>
           </Card>

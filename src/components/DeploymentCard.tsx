@@ -10,20 +10,20 @@ type DeploymentCardProps = {
 
 const DeploymentCard: React.FC<DeploymentCardProps> = ({ platform, steps, icon }) => {
   return (
-    <Card>
+    <Card className="border-l-4 border-l-primary">
       <CardHeader>
         <CardTitle className="flex items-center">
           {icon}
-          <span className="ml-2">{platform} Deployment</span>
+          <span>{platform} Deployment</span>
         </CardTitle>
         <CardDescription>
           How to deploy to {platform}
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ol className="list-decimal pl-5 space-y-1">
+        <ol className="list-decimal pl-5 space-y-2">
           {steps.map((step, index) => (
-            <li key={index}>{step}</li>
+            <li key={index} className="text-sm">{step}</li>
           ))}
         </ol>
       </CardContent>
